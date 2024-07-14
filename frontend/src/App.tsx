@@ -20,7 +20,7 @@ function App() {
       <div className="card">
         <button onClick={() => {
           setCount((count) => count + 1)
-          fetch('http://localhost:3000', {
+          fetch('http://localhost:3000/login', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -33,6 +33,22 @@ function App() {
           })
         }}>
           count is {count}
+        </button>
+        <button onClick={() => {
+          setCount((count) => count + 1)
+          fetch('http://localhost:3000/register', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              name: count || 'Anonim',
+              pass: ' hello world'
+            })
+          })
+        }}>
+          register {count}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR

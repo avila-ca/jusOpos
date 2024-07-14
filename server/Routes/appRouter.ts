@@ -1,6 +1,10 @@
 import { Router } from "express";
 import { loginController } from "./loginController";
+import { register } from "module";
+import { registerController } from "./registerController";
 
-const appRouter = Router()
+export const appRouter = Router()
+
 
 appRouter.post('/login', loginController)
+appRouter.post('/register', registerController)
