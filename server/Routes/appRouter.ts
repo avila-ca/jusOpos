@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { loginController } from "./loginController";
-import { register } from "module";
 import { registerController } from "./registerController";
 
 export const appRouter = Router()
