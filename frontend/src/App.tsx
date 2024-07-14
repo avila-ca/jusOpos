@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  let pass = 'hola'
   return (
     <>
       <div>
@@ -18,7 +18,20 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => {
+          setCount((count) => count + 1)
+          fetch('http://localhost:3000', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              name: count || 'Anonim',
+              pass: pass
+            })
+          })
+        }}>
           count is {count}
         </button>
         <p>
