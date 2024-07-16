@@ -1,7 +1,7 @@
 import express, {json, urlencoded} from "express";
 import cors from 'cors'
-import { loginController } from "./Routes/loginController";
-import { appRouter } from "./Routes/appRouter";
+import { loginController } from "../JustiOpos/infrastructure/Routes/loginController";
+import { appRouter } from "../JustiOpos/infrastructure/Routes/appRouter";
 
 const app = express()
 
