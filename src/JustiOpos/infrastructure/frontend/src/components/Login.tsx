@@ -5,7 +5,7 @@ import { layoutForm } from "./styleComponents/layoutForm";
 export function Login(): JSX.Element{
 
     const [form, setForm] = useState({
-        name: 'Anonim',
+        name: '',
         pass: ''    
     })
     const handleChange = (e: any) => {
@@ -22,8 +22,8 @@ export function Login(): JSX.Element{
         <>
             <div style={layoutForm}>
             <form method="post" style={loginStyle}>
-                <input type="text" name="name" id="name" value={form.name} placeholder="userName"  onChange={handleChange}/>
-                <input type="password" name="pass" placeholder="password" onChange={handleChange}/>
+                <input type="text" name="name" id="name" value={form.name} placeholder="User Name"  onChange={handleChange}/>
+                <input type="password" name="pass" placeholder="Password" onChange={handleChange}/>
                 <button onClick={() => {
                     fetch('http://localhost:3000/login', {
                         method: 'POST',
@@ -32,7 +32,7 @@ export function Login(): JSX.Element{
                         'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                        name: form.name || 'Anonim',
+                        name: form.name,
                         pass: form.pass
                         })
                     })

@@ -8,7 +8,7 @@ export function Register(): JSX.Element{
     })
 
     const [form, setForm] = useState({
-        name: 'Anonim',
+        name: '',
         email:'',
         pass: '',
         passVerify:''
@@ -64,10 +64,10 @@ export function Register(): JSX.Element{
             
             <div className="card">
             <form method="post">
-                <input type="text" name="name" id="name" value={form.name} placeholder="userName"  onChange={handleChange}/>
-                <input type="text" name="email" id="email" placeholder="email" onChange={handleChange}/>
-                <input type="password" name="pass" id="pass" placeholder="new password" onChange={handleChange}/>
-                <input type="password" name="passVerify" id="passVerify" placeholder="repeat your password" onChange={handleChange}/>
+                <input type="text" name="name" id="name" value={form.name} placeholder="User Name"  onChange={handleChange}/>
+                <input type="text" name="email" id="email" placeholder="Email" onChange={handleChange}/>
+                <input type="password" name="pass" id="pass" placeholder="New Password" onChange={handleChange}/>
+                <input type="password" name="passVerify" id="passVerify" placeholder="Repeat Your Password" onChange={handleChange}/>
                 <button onClick={handleSubmit}>
                     Send        
                 </button>

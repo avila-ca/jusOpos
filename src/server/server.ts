@@ -1,8 +1,10 @@
 import express, {json, urlencoded} from "express";
 import cors from 'cors'
-import { loginController } from "../JustiOpos/infrastructure/Routes/loginController";
 import { appRouter } from "../JustiOpos/infrastructure/Routes/appRouter";
+import dotenv from "dotenv"
+import  '../JustiOpos/infrastructure/mongoDB/mongoConnection'
 
+dotenv.config()
 const app = express()
 
 let port = process.env.PORT ?? 3001
