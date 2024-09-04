@@ -10,4 +10,10 @@ export class UseCases{
         const registeredUser = this.jusOposRepository.postNewUser(newUser)
         return registeredUser
     }
+    async postLoginUser(user:User): Promise<User | null>{
+        const userLogged = this.jusOposRepository.postLogin(user)
+        return userLogged
+    }
+    
+
 }

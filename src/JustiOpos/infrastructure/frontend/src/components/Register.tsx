@@ -23,7 +23,6 @@ export function Register(): JSX.Element{
           ...prevForm,
           [name]: value,
         }))
-        console.log(name, value, form)
     }
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
@@ -41,11 +40,14 @@ export function Register(): JSX.Element{
                     pass: form.pass
                     })
                 })
+
+                console.log('hellooooo')
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                setData( await response.json())
-                console.log(data)
+                const result = await response.json()
+                setData( result)
+                console.log('la respuesta: ' + result + data)
             } catch (err: any) {
                 if (err instanceof Error) {
                     setError(err.message); 
@@ -63,7 +65,7 @@ export function Register(): JSX.Element{
         <>
             
             <div className="card">
-            <form method="post">
+            <form method="post" style={{display:'flex', flexDirection:'column', gap:'1em'}}>
                 <input type="text" name="name" id="name" value={form.name} placeholder="User Name"  onChange={handleChange}/>
                 <input type="text" name="email" id="email" placeholder="Email" onChange={handleChange}/>
                 <input type="password" name="pass" id="pass" placeholder="New Password" onChange={handleChange}/>
